@@ -1,10 +1,4 @@
 <?php
-
-/**
- * A super simple file cacheing system. You should probably use this  as
- * a fallback to some other, more robust caching system, like PHP's APC
- * see http://php.net/manual/en/book.apc.php for better caching methods
- */
 class GCCache {
 	
 	private $timeout, $cacheDir;
