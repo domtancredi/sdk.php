@@ -28,6 +28,13 @@
 				padding: 10px;
 				cursor: pointer;
 			}
+			
+			section section {
+				border: 1px solid #ddd;
+			}
+			section section.alt {
+				background: #eee;
+			}
 			article {
 				width: 100%;
 			}
@@ -45,24 +52,64 @@
 					<?php
 						require_once "bootstrap.php";
 					?>		
+					<p>The <code>_autoload()</code> function should take care of loading everything else for you...</p>
+				</article>		
+			</section>
+			<section>
+				<h1><span>&plus;</span> Support</h1>
+				<article>
+					<p>PHP Version (<?php print PHP_VERSION;?>): 
+					<?php if (version_compare(PHP_VERSION, "5.3.0", ">=" )): ?>
+						<span style='color: green;'>Your PHP version does support Namespaces.</span>	
+					<?php else: ?>
+						<span style='color: red;'>Your PHP version does not support Namespaces.</span>	
+					<?php endif; ?><p>Curl Support: 
+					<?php if (function_exists("curl_init")): ?>
+						<span style='color: green;'>Yes</span>	
+					<?php else: ?>
+						<span style='color: red;'>No</span>	
+					<?php endif; ?>
+					</p>
 				</article>		
 			</section>
 			<section>
 				<h1><span>&plus;</span> Segments Test</h1>
 				<article>
-					<p>Loading the Segments library...</p>
-					<?php
-						require_once "library/Segments.php";
-						$segments = new Segments();
-						//_d($segments->get_all_segments());
-						//_d($segments->errors->get_error_count());
-					?>		
+					<section class="">
+						<p><strong>Load up the segments: </strong> <code>$segments = new Segments();</code></p>
+						<?php $segments = new Segments(); ?>
+						<p>loaded...</p>
+					</section>
+					<section class="alt">
+						<p><strong>Count the errors (if any): </strong> <code>$segments->errors->get_error_count();</code></p>
+						<?php _d($segments->errors->get_error_count()); ?>
+					</section>
+					<section class="">
+						<p><strong>What api version is this? </strong> <code>$segments->version;</code></p>
+						<?php _d($segments->version); ?>
+					</section>		
+					<section class="alt">
+						<p><strong>Get all the inactive segments: </strong> <code>$segments->get_inactive_segments();</code></p>
+						<?php _d($segments->get_inactive_segments()); ?>
+					</section>		
+					<section class="">
+						<p><strong>Get all the active segments</strong> <code>$segments->get_active_segments();</code></p>
+						<?php _d($segments->get_active_segments()); ?>
+					</section>	
+					<section class="alt">
+						<p><strong>Get all based on X: </strong> <code>$segments->get_segments_where('description', '#region#');</code></p>
+						<?php _d($segments->get_segments_where('description', '#region#')); ?>
+					</section>																		
 				</article>			
 			</section>
 			<section>
 				<h1><span>&plus;</span> Offers</h1>
 				<article>
-					<p>Nothing going on here yet...</p>
+					<section class="">
+						<p><strong>Load up the Offers: </strong> <code>$offers = new Offers();</code></p>
+						<?php $offers = new Offers(); ?>
+						<p>loaded...</p>
+					</section>
 				</article>
 			</section>
 		</div>
