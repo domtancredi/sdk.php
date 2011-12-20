@@ -48,6 +48,23 @@
 				</article>		
 			</section>
 			<section>
+				<h1><span>&plus;</span> Support</h1>
+				<article>
+					<p>PHP Version (<?php print PHP_VERSION;?>): 
+					<?php if (version_compare(PHP_VERSION, "5.3.0", ">" )): ?>
+						<span style='color: green;'>Your PHP version does support Namespaces.</span>	
+					<?php else: ?>
+						<span style='color: red;'>Your PHP version does not support Namespaces.</span>	
+					<?php endif; ?><p>Curl Support: 
+					<?php if (function_exists("curl_init")): ?>
+						<span style='color: green;'>Yes</span>	
+					<?php else: ?>
+						<span style='color: red;'>No</span>	
+					<?php endif; ?>
+					</p>
+				</article>		
+			</section>
+			<section>
 				<h1><span>&plus;</span> Segments Test</h1>
 				<article>
 					<p>Loading the Segments library...</p>
