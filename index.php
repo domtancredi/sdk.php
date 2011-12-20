@@ -59,7 +59,7 @@
 				<h1><span>&plus;</span> Support</h1>
 				<article>
 					<p>PHP Version (<?php print PHP_VERSION;?>): 
-					<?php if (version_compare(PHP_VERSION, "5.3.0", ">" )): ?>
+					<?php if (version_compare(PHP_VERSION, "5.3.0", ">=" )): ?>
 						<span style='color: green;'>Your PHP version does support Namespaces.</span>	
 					<?php else: ?>
 						<span style='color: red;'>Your PHP version does not support Namespaces.</span>	
