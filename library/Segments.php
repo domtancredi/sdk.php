@@ -37,12 +37,12 @@ class Segments extends Response {
    
    	public function get_inactive_segments() 
    	{
-		return $this->get_by('active', FALSE);      
+		return $this->get_all_where('active', FALSE);      
    	}
    	
    	public function get_segments_where($key, $value)
    	{
-    	return $this->get_by($key, $value);
+    	return $this->get_all_where($key, $value);
    	}
    
    	public function get_all_values($key)
