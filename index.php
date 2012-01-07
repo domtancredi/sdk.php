@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-<?php ini_set('memory_limit', '512M'); ?>
+
 	<head>
 		<meta charset="utf-8">
 		<title>PHP SDK Test</title>
