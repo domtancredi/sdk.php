@@ -38,27 +38,18 @@ offer {
 }
 */
 
-class Offers extends Response {
+class Offer extends Response {
    
-   	public function __construct()  
+   	public function __construct($offer_id)  
    	{
    		$api_call = PublisherApi::get_instance();
 		
-		$request = array('pagenumber' => '1',
-						 'pagesize' => '1',
-						 'Timeframe' => '',
-						 'startDate' => '',
-						 'endDate' => '',
-						 'OrderBy' => '',
-						 'segmentKeys' => '',
-						 'ClassificationKeys' => '',
-						 'Tags' => '');
-	
+		$request = array('offerId' => $offer_id);
 		
-		parent::__construct($api_call->get_offers($request), 'offers');		  
+		parent::__construct($api_call->get_offer_by_id($offer_id), 'offer');		  
    	}
 
-	public function get_all_offers()
+	public function get_offer()
 	{
 		return $this->get_everything();	
 	}

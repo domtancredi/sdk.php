@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+<?php ini_set('memory_limit', '512M'); ?>
 	<head>
 		<meta charset="utf-8">
 		<title>PHP SDK Test</title>
@@ -73,23 +74,6 @@
 				</article>		
 			</section>
 			<section>
-				<h1><span>&plus;</span> Support</h1>
-				<article>
-					<p>PHP Version (<?php print PHP_VERSION;?>): 
-					<?php if (version_compare(PHP_VERSION, "5.3.0", ">=" )): ?>
-						<span style='color: green;'>Your PHP version does support Namespaces.</span>	
-					<?php else: ?>
-						<span style='color: red;'>Your PHP version does not support Namespaces.</span>	
-					<?php endif; ?><p>Curl Support: 
-					<?php if (function_exists("curl_init")): ?>
-						<span style='color: green;'>Yes</span>	
-					<?php else: ?>
-						<span style='color: red;'>No</span>	
-					<?php endif; ?>
-					</p>
-				</article>		
-			</section>
-			<section>
 				<h1><span>&plus;</span> Segments Test</h1>
 				<article>
 					<section class="">
@@ -127,7 +111,45 @@
 						<?php $offers = new Offers(); ?>
 						<p>loaded...</p>
 					</section>
+					<section class="alt">
+						<p><strong>Count the errors (if any): </strong> <code>$offers->errors->get_error_count();</code></p>
+						<?php _d($offers->errors->get_error_count()); ?>
+						<p><?= $offers->errors->get_error_count(); ?></p>
+					</section>
+					<section class="">
+						<p><strong>What api version is this? </strong> <code>$offers->version;</code></p>
+						<?php _d($offers->version); ?>
+						<p><?= $offers->version ?></p>
+					</section>		
+					<section class="alt">
+						<p><strong>Get all the offers: </strong> <code>$offers->get_all_offers();</code></p>
+						<?php //_d($offers->get_all_offers()); ?>
+					</section>
 				</article>
+			</section>
+			<section>
+				<h1><span>&plus;</span> Offer</h1>
+				<article>
+					<section class="">
+						<p><strong>Load up the Offer: </strong> <code>$offer = new Offer();</code></p>
+						<?php $offer = new Offer('4527'); ?>
+						<p>loaded...</p>
+					</section>
+					<section class="alt">
+						<p><strong>Count the errors (if any): </strong> <code>$offer->errors->get_error_count();</code></p>
+						<?php _d($offer->errors->get_error_count()); ?>
+						<p><?= $offer->errors->get_error_count(); ?></p>
+					</section>
+					<section class="">
+						<p><strong>What api version is this? </strong> <code>$offer->version;</code></p>
+						<?php _d($offer->version); ?>
+						<p><?= $offer->version ?></p>
+					</section>		
+					<section class="alt">
+						<p><strong>Get all the offer details: </strong> <code>$offer->get_offer();</code></p>
+						<?php _d($offer->get_offer()); ?>
+					</section>																	
+				</article>			
 			</section>
 		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
